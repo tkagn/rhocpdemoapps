@@ -1,0 +1,5 @@
+resources:
+  - ./ns-spring-petclinic.yaml
+  - ./deployment.yaml
+  - ./service.yaml
+  - ./route.yaml
