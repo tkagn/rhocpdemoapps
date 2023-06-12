@@ -1,4 +1,8 @@
 # rhocpdemoapps
-Demo Apps for OpemShift
+Demo Apps for OpemShift:
 
-- Spring Petclinic
+|  Application  |  Branch |
+|---|---|
+| Spring PetClinic  | Main |
+| Spring PetClinic  | petclinic-mariadb    |
+
