@@ -11,7 +11,7 @@ metadata:
     app.openshift.io/runtime: java
   name: spring-petclinic
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: spring-petclinic
@@ -34,6 +34,21 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: mysql
+          - name: MYSQL_URL
+            value: 'jdbc:/mysql://mariadb:3306/petclinic'
+          - name: MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: mariadb
+                key: database-user
+          - name: MYSQL_PASS
+            valueFrom:
+              secretKeyRef:
+                name: mariadb
+                key: database-password
         ports:
         - containerPort: 8080
           protocol: TCP

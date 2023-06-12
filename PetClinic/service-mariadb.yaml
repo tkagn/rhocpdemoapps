@@ -1,0 +1,21 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: mariadb
+  namespace: spring-petclinic
+  labels:
+    app.openshift.io/runtime: mariadb
+    app: mariadb
+  annotations:
+    template.openshift.io/expose-uri: 'mysql://{.spec.clusterIP}:{.spec.ports[?(.name=="mariadb")].port}'
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: mariadb
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
+  type: ClusterIP
+  selector:
+    app: mariadb

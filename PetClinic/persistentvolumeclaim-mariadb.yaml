@@ -1,0 +1,18 @@
+﻿kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mariadb
+  namespace: spring-petclinic
+  finalizers:
+    - kubernetes.io/pvc-protection
+  labels:
+    app.openshift.io/runtime: mariadb
+    app: mariadb
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeMode: Filesystem
+

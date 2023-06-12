@@ -1,5 +1,9 @@
 resources:
   - ./ns-spring-petclinic.yaml
+  - ./secret-mariadb.yaml
+  - ./persistentvolumeclaim-mariadb.yaml
+  - ./deployment-mariadb.yaml
+  - ./service-mariadb.yaml
   - ./deployment.yaml
   - ./service.yaml
   - ./route.yaml
